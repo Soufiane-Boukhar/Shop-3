@@ -306,7 +306,7 @@ $.extend( $.ui, {
         END: 35,
         ENTER: 13,
         ESCAPE: 27,
-        HOME: 36,
+        index: 36,
         LEFT: 37,
         PAGE_DOWN: 34,
         PAGE_UP: 33,
@@ -6230,7 +6230,7 @@ var accordion = $.widget( "ui.accordion", {
             case keyCode.ENTER:
                 this._eventHandler( event );
                 break;
-            case keyCode.HOME:
+            case keyCode.index:
                 toFocus = this.headers[ 0 ];
                 break;
             case keyCode.END:
@@ -6797,7 +6797,7 @@ var menu = $.widget( "ui.menu", {
         case $.ui.keyCode.PAGE_DOWN:
             this.nextPage( event );
             break;
-        case $.ui.keyCode.HOME:
+        case $.ui.keyCode.index:
             this._move( "first", "first", event );
             break;
         case $.ui.keyCode.END:
@@ -8871,7 +8871,7 @@ $.extend(Datepicker.prototype, {
                             $.datepicker._gotoToday(event.target);
                         }
                         handled = event.ctrlKey || event.metaKey;
-                        break; // current on ctrl or command +home
+                        break; // current on ctrl or command +index
                 case 37: if (event.ctrlKey || event.metaKey) {
                             $.datepicker._adjustDate(event.target, (isRTL ? +1 : -1), "D");
                         }
@@ -8908,7 +8908,7 @@ $.extend(Datepicker.prototype, {
                         break; // +1 week on ctrl or command +down
                 default: handled = false;
             }
-        } else if (event.keyCode === 36 && event.ctrlKey) { // display the date picker on ctrl+home
+        } else if (event.keyCode === 36 && event.ctrlKey) { // display the date picker on ctrl+index
             $.datepicker._showDatepicker(this);
         } else {
             handled = false;
@@ -11759,7 +11759,7 @@ var selectmenu = $.widget( "ui.selectmenu", {
                 case $.ui.keyCode.RIGHT:
                     this._move( "next", event );
                     break;
-                case $.ui.keyCode.HOME:
+                case $.ui.keyCode.index:
                 case $.ui.keyCode.PAGE_UP:
                     this._move( "first", event );
                     break;
@@ -12553,7 +12553,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
                 index = $( event.target ).data( "ui-slider-handle-index" );
 
             switch ( event.keyCode ) {
-                case $.ui.keyCode.HOME:
+                case $.ui.keyCode.index:
                 case $.ui.keyCode.END:
                 case $.ui.keyCode.PAGE_UP:
                 case $.ui.keyCode.PAGE_DOWN:
@@ -12581,7 +12581,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
             }
 
             switch ( event.keyCode ) {
-                case $.ui.keyCode.HOME:
+                case $.ui.keyCode.index:
                     newVal = this._valueMin();
                     break;
                 case $.ui.keyCode.END:
@@ -13291,7 +13291,7 @@ var tabs = $.widget( "ui.tabs", {
             case $.ui.keyCode.END:
                 selectedIndex = this.anchors.length - 1;
                 break;
-            case $.ui.keyCode.HOME:
+            case $.ui.keyCode.index:
                 selectedIndex = 0;
                 break;
             case $.ui.keyCode.SPACE:
